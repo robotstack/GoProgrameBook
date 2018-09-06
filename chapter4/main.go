@@ -63,18 +63,32 @@ func deleteEmpty(s []rune) []rune {
 	tag := unicode.IsSpace(s[0])
 	for i := 1; i < len(s); i++ {
 		if unicode.IsSpace(s[i]) {
-
+			if tag != true {
+				position++
+				s[position] = s[i]
+				tag = true
+			}
+		} else {
+			tag = false
+			position++
+			s[position] = s[i]
 		}
 	}
+	return s[:position+1]
 }
 
 func test4_6() {
-
+	str := "hello,      中国"
+	fmt.Println(str)
+	testRune := []rune(str)
+	res := deleteEmpty(testRune)
+	fmt.Println(string(res))
 }
 
 func main() {
 	fmt.Println("vim-go")
 	//test4_3()
 	//test4_4()
-	test4_5()
+	//test4_5()
+	test4_6()
 }
