@@ -85,6 +85,8 @@ func test4_6() {
 	fmt.Println(string(res))
 }
 
+func test4_7() {}
+
 func main() {
 	fmt.Println("vim-go")
 	//test4_3()
